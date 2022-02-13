@@ -9,7 +9,9 @@ First argument is operation:
 * Pack CAM: --pack (-p),
 * Unpack CAM using base64 file names: --unpack_base64 (-ub),
 * Pack CAM using base64 file names: --pack_base64 (-pb).
+
 Second argument is input file path. For "pack" operation it should be directory with "CamTool.index" file.
+
 Third argument is output file path. For "unpack" operation it would be directory with "CamTool.index" file in it.
 
 For example:
