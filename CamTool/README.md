@@ -46,6 +46,6 @@ In general, I distiguish three main blocks of CAM file:
 * File header - contains number of sections, their extensions, and offset of each section header,
 * Content header - contains section headers:
     * Each section header contains number of files in section and names of those files together with their size and offset,
-* Content - data of each file.
+* Content - bytes data of each file.
 
 Offset is always counted from beggining of the file. Each section contain files with only one extension.

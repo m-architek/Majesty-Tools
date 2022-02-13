@@ -10,8 +10,8 @@ static class StrTool
 
     /**
         First argument is operation: 
-            * STR to TXT:  --export (-e),
-            * TXT to STR: --import (-i).
+            * STRT to TXT:  --export (-e),
+            * TXT to STRT: --import (-i).
         Second argument is input file path.
         Third argument is output file path.
     */
