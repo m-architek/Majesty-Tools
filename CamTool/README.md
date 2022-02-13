@@ -5,10 +5,10 @@ Application allwos to unpack and pack CAM files.
 ### Usage
 
 First argument is operation: 
-    * Unpack CAM:  --unpack (-u),
-    * Pack CAM: --pack (-p),
-    * Unpack CAM using base64 file names: --unpack_base64 (-ub),
-    * Pack CAM using base64 file names: --pack_base64 (-pb).
+* Unpack CAM:  --unpack (-u),
+* Pack CAM: --pack (-p),
+* Unpack CAM using base64 file names: --unpack_base64 (-ub),
+* Pack CAM using base64 file names: --pack_base64 (-pb).
 Second argument is input file path. For "pack" operation it should be directory with "CamTool.index" file.
 Third argument is output file path. For "unpack" operation it would be directory with "CamTool.index" file in it.
 
@@ -43,7 +43,7 @@ For detail view of CAM file structure please look into code.
 In general, I distiguish three main blocks of CAM file:
 * File header - contains number of sections, their extensions, and offset of each section header,
 * Content header - contains section headers:
-* * Each section header contains number of files in section and names of those files together with their size and offset,
+    * Each section header contains number of files in section and names of those files together with their size and offset,
 * Content - data of each file.
 
 Offset is always counted from beggining of the file. Each section contain files with only one extension.
