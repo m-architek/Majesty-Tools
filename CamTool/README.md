@@ -20,10 +20,10 @@ mono CamTool.exe -u gpltext.cam gpltext
 ```
 Unpacks gpltext.cam into directory gpltext.
 
-### Unpacked contetnt structure
+### Unpacked content structure
 
-Target unpack directory contains "CamTool.index" and number of directories equal to number of sections in given CAM file.
-"CamTool.index" is required to maintain file roder on CAM file. Although I don't know, if file order really matter for game itself, in my modifications I try to maintain it. It aslo useful for testing tool itself (unpack and pack again should result in exact same file which wouldn't be a case, if file order in archive is different).
+Target unpack directory contains "CamTool.index" file and number of directories equal to number of sections in given CAM file.
+"CamTool.index" is required to maintain file order on CAM file. Although I don't know, if file order really matters for game itself, in my modifications I try to maintain it. It is also useful for testing tool itself (unpack and pack again should result in exact same file which wouldn't be a case, if file order in archive is different).
 
 "CamTool.index" file structure:
 * first line is number of sections

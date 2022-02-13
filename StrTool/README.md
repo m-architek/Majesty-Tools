@@ -37,7 +37,7 @@ Offset is always counted from beggining of the file.
 
 STRT files of different Majesty versions can differ between each other.
 
-I found following differences between HD version and Polish verion of game (PL original release):
+I found following differences between HD version and Polish version of game (PL original release):
 * File header of HD version ends with '0x02' flag, while for PL version it is '0x00'
 * For HD version line offset is descibed os 2 bytes uint, while for PL verion is 4 bytes uint
 
