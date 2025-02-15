@@ -18,6 +18,8 @@ mono StrTool.exe -e QUES.STRT QUES.TXT
 ```
 Exports QUES.STRT to editable QUES.TXT.
 
+Input and output path can also be directory. Application will process all files in given input directory and save it in given output directory.
+
 ### Encoding
 
 TXT files should be edited using windows-1250 encoding.

@@ -12,8 +12,8 @@ static class StrTool
         First argument is operation: 
             * STRT to TXT:  --export (-e),
             * TXT to STRT: --import (-i).
-        Second argument is input file path.
-        Third argument is output file path.
+        Second argument is input file/dricetory path.
+        Third argument is output file/directory path.
     */
     static void Main(string[] args)
     {
@@ -43,14 +43,61 @@ static class StrTool
 
     private static void Export(string input, string output) 
     {
-        var lines = StrLib.Read(input);
-        TxtLib.Write(lines, output);
+        if(File.Exists(input))
+        {
+            var lines = StrLib.Read(input);
+            TxtLib.Write(lines, output);
+        }
+        else if(Directory.Exists(input))
+        {
+            var files = Directory.GetFiles(input);
+
+            Console.WriteLine($"Export {files.Length} files from directory {input} to directory {output}");
+            Directory.CreateDirectory(output);
+            foreach (string file in files)
+            {
+                var outputFile = Path.Combine(
+                    output, 
+                    $"{Path.GetFileNameWithoutExtension(file)}.TXT"
+                );
+                var lines = StrLib.Read(file);
+                TxtLib.Write(lines, outputFile);
+            }            
+        }
+        else
+        {
+            Console.WriteLine("ERROR: Invalid input path: " + input);
+        }
     }
 
     private static void Import(string input, string output) 
     {
-        var lines = TxtLib.Read(input);
-        StrLib.Write(lines, output);
+
+        if(File.Exists(input))
+        {
+            var lines = TxtLib.Read(input);
+            StrLib.Write(lines, output);
+        }
+        else if(Directory.Exists(input))
+        {
+            var files = Directory.GetFiles(input);
+
+            Console.WriteLine($"Import {files.Length} files from directory {input} to directory {output}");
+            Directory.CreateDirectory(output);
+            foreach (string file in files)
+            {
+                var outputFile = Path.Combine(
+                    output, 
+                    $"{Path.GetFileNameWithoutExtension(file)}.STRT"
+                );
+                var lines = TxtLib.Read(file);
+                StrLib.Write(lines, outputFile);
+            }            
+        }
+        else
+        {
+            Console.WriteLine("ERROR: Invalid input path: " + input);
+        }
     }
 }
 
