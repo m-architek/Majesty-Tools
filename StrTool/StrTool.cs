@@ -106,16 +106,21 @@ static class TxtLib
     private static Encoding encoding = Array.Find(Encoding.GetEncodings(), ei => ei.Name == "windows-1250")
             .GetEncoding();
 
+    private static string EOL = "<EOL>";
+
     public static byte[][] Read(string path)
     {
-        return File.ReadLines(path, encoding)
+        return File.ReadAllText(path, encoding)
+            .Split(EOL + Environment.NewLine)
+            .Where(line => !String.IsNullOrWhiteSpace(line))
             .Select(line => encoding.GetBytes(line))
             .ToArray();
     }
 
     public static void Write(byte[][] lines, string path)
     {
-        var encodedLines = lines.Select(line => encoding.GetString(line));
+        var encodedLines = lines.Select(line => encoding.GetString(line))
+            .Select(line => line + EOL);
         File.WriteAllLines(path, encodedLines, encoding);
     }
 }
